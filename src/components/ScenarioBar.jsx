@@ -18,7 +18,7 @@ export default function ScenarioBar({ buyingCenters, solutions, cells, scenario,
   const targetCell = scenario.active ? cellMap.get(`${scenario.buying_center_id}__${scenario.solution_id}`) : null
 
   return (
-    <div className="flex flex-wrap items-center gap-3 px-6 py-2.5 bg-violet-50/60 border-b border-violet-100 text-sm">
+    <div className="flex flex-wrap items-center gap-3 px-6 py-2.5 bg-gradient-to-r from-violet-50 via-violet-50/70 to-transparent border-b border-violet-100 text-sm">
       <div className="flex items-center gap-1.5 text-violet-700 text-xs font-semibold">
         <FlaskConical className="h-3.5 w-3.5" /> Scenario: what if we win…
       </div>
@@ -26,7 +26,7 @@ export default function ScenarioBar({ buyingCenters, solutions, cells, scenario,
       <select
         value={scenario.buying_center_id || ''}
         onChange={(e) => setScenario((s) => ({ ...s, buying_center_id: e.target.value, active: !!e.target.value && !!s.solution_id }))}
-        className="text-xs border border-violet-200 rounded-md px-2 py-1 bg-white"
+        className="text-xs border border-violet-200 rounded-lg px-2 py-1 bg-white shadow-sm hover:border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-300 transition-colors"
       >
         <option value="">Select buying center…</option>
         {buyingCenters.map((bc) => (
@@ -39,7 +39,7 @@ export default function ScenarioBar({ buyingCenters, solutions, cells, scenario,
       <select
         value={scenario.solution_id || ''}
         onChange={(e) => setScenario((s) => ({ ...s, solution_id: e.target.value, active: !!e.target.value && !!s.buying_center_id }))}
-        className="text-xs border border-violet-200 rounded-md px-2 py-1 bg-white"
+        className="text-xs border border-violet-200 rounded-lg px-2 py-1 bg-white shadow-sm hover:border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-300 transition-colors"
       >
         <option value="">Select solution…</option>
         {solutions.map((s) => (

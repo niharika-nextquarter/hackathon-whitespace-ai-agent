@@ -6,8 +6,8 @@ export default function MatrixFilters({ filters, setFilters, buyingCenters, solu
   const isDirty = filters.region !== 'All' || filters.buyingCenterId !== 'All' || filters.solutionId !== 'All'
 
   return (
-    <div className="flex flex-wrap items-center gap-3 px-6 py-2.5 bg-white border-b border-slate-200 text-sm">
-      <div className="flex items-center gap-1.5 text-slate-500 text-xs font-medium">
+    <div className="flex flex-wrap items-center gap-3 px-6 py-2.5 bg-white/70 backdrop-blur-sm border-b border-slate-200 text-sm">
+      <div className="flex items-center gap-1.5 text-slate-500 text-xs font-semibold">
         <Filter className="h-3.5 w-3.5" />
         Filters
       </div>
@@ -50,7 +50,7 @@ function Select({ label, value, onChange, options }) {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="border border-slate-200 rounded-md px-2 py-1 text-xs text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300"
+        className="border border-slate-200 rounded-lg px-2 py-1 text-xs text-slate-700 bg-white shadow-sm hover:border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-300 transition-colors"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>{o.label}</option>

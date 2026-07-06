@@ -40,8 +40,8 @@ function SourceRow({ src, isExpanded, onToggle, onResync, onUpload }) {
   const Icon = style.icon
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
-      <button onClick={onToggle} className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-slate-50">
+    <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+      <button onClick={onToggle} className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-slate-50 transition-colors">
         <ChevronDown className={`h-4 w-4 text-slate-400 shrink-0 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
@@ -73,13 +73,13 @@ function SourceRow({ src, isExpanded, onToggle, onResync, onUpload }) {
           <div className="flex gap-2">
             <button
               onClick={onResync}
-              className="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1.5 rounded-md border border-slate-300 text-slate-600 hover:bg-slate-50"
+              className="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1.5 rounded-lg border border-slate-300 text-slate-600 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-colors"
             >
               <RefreshCw className="h-3.5 w-3.5" /> Re-sync / Re-analyze
             </button>
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1.5 rounded-md border border-slate-300 text-slate-600 hover:bg-slate-50"
+              className="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1.5 rounded-lg border border-slate-300 text-slate-600 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-colors"
             >
               <Upload className="h-3.5 w-3.5" /> Upload new file
             </button>

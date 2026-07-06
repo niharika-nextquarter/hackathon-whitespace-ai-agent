@@ -12,7 +12,7 @@ export default function ReviewQueue({ cells, buyingCenterById, solutionById, onA
 
   return (
     <div className="p-6 max-w-3xl mx-auto space-y-8">
-      <div className="flex items-center justify-between bg-white border border-slate-200 rounded-xl p-4">
+      <div className="flex items-center justify-between bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
         <div>
           <div className="text-sm font-semibold text-slate-800">Bulk approve</div>
           <div className="text-xs text-slate-500">Approve all non-conflict suggestions at or above a confidence threshold.</div>
@@ -26,14 +26,14 @@ export default function ReviewQueue({ cells, buyingCenterById, solutionById, onA
               max={99}
               value={threshold}
               onChange={(e) => setThreshold(Number(e.target.value))}
-              className="w-28"
+              className="w-28 accent-brand-600"
             />
             <span className="font-semibold text-slate-700 w-9">{threshold}%</span>
           </label>
           <button
             onClick={() => onBulkApprove(eligibleForBulk.map((c) => c.id))}
             disabled={!eligibleForBulk.length}
-            className="flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-md bg-slate-900 text-white disabled:opacity-40 hover:bg-slate-800"
+            className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-brand-700 text-white shadow-sm disabled:opacity-40 hover:bg-brand-800 hover:shadow-md transition-all"
           >
             <CheckCheck className="h-3.5 w-3.5" /> Approve {eligibleForBulk.length} suggestion{eligibleForBulk.length === 1 ? '' : 's'}
           </button>

@@ -8,15 +8,15 @@ export default function WhitespaceMatrix({ buyingCenters, solutions, cells, onCe
 
   return (
     <div className="p-6">
-      <div className="overflow-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-auto rounded-2xl border border-slate-200 bg-white shadow-md shadow-slate-200/60">
         <table className="border-collapse w-full min-w-[760px]">
           <thead>
             <tr>
-              <th className="sticky left-0 z-10 bg-slate-50 border-b border-r border-slate-200 p-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wide w-48">
+              <th className="sticky left-0 z-10 bg-gradient-to-b from-slate-50 to-slate-100/60 border-b border-r border-slate-200 p-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wide w-48">
                 Buying Center
               </th>
               {solutions.map((s) => (
-                <th key={s.solution_id} className="bg-slate-50 border-b border-slate-200 p-3 text-left text-xs font-semibold text-slate-600 min-w-[150px]">
+                <th key={s.solution_id} className="bg-gradient-to-b from-slate-50 to-slate-100/60 border-b border-slate-200 p-3 text-left text-xs font-semibold text-slate-600 min-w-[150px]">
                   {s.solution_name}
                   <div className="text-[10px] font-normal text-slate-400 normal-case mt-0.5">{s.associated_products.join(' · ')}</div>
                 </th>
@@ -25,12 +25,12 @@ export default function WhitespaceMatrix({ buyingCenters, solutions, cells, onCe
           </thead>
           <tbody>
             {buyingCenters.map((bc) => (
-              <tr key={bc.buying_center_id}>
+              <tr key={bc.buying_center_id} className="hover:bg-slate-50/50 transition-colors">
                 <th className="sticky left-0 z-10 bg-white border-r border-b border-slate-200 p-3 text-left align-top w-48">
                   <div className="text-sm font-semibold text-slate-800">{bc.buying_center_name}</div>
                   <div className="text-[11px] text-slate-400">{bc.geography}</div>
                   <div className="text-[11px] text-slate-400 mt-0.5">{bc.budget_owner_name}</div>
-                  <span className="inline-block mt-1 text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 border border-slate-200">
+                  <span className="inline-block mt-1 text-[10px] px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-500 border border-slate-200 font-medium">
                     {bc.buying_potential} potential
                   </span>
                 </th>
@@ -62,7 +62,7 @@ export default function WhitespaceMatrix({ buyingCenters, solutions, cells, onCe
 
 function MatrixLegend() {
   return (
-    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-4 text-xs text-slate-500">
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-4 px-1 text-xs text-slate-500">
       {Object.entries(STATUS_META).map(([key, meta]) => (
         <div key={key} className="flex items-center gap-1.5">
           <StatusIcon name={meta.icon} className={`h-3.5 w-3.5 ${meta.text}`} />
@@ -70,10 +70,10 @@ function MatrixLegend() {
         </div>
       ))}
       <div className="flex items-center gap-1.5">
-        <span className="inline-block h-2.5 w-2.5 rounded-full bg-indigo-500" /> Pending AI suggestion
+        <span className="inline-block h-2.5 w-2.5 rounded-full bg-indigo-500 shadow-sm shadow-indigo-300" /> Pending AI suggestion
       </div>
       <div className="flex items-center gap-1.5">
-        <span className="inline-block h-2.5 w-2.5 rounded-full bg-rose-500" /> Conflict flagged
+        <span className="inline-block h-2.5 w-2.5 rounded-full bg-rose-500 shadow-sm shadow-rose-300" /> Conflict flagged
       </div>
     </div>
   )

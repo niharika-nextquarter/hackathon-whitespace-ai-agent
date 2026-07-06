@@ -24,7 +24,7 @@ export default function SuggestionCard({
   const proposedMeta = STATUS_META[editedStatus]
 
   return (
-    <div className={`rounded-lg border-2 border-dashed p-3.5 ${isConflict ? 'border-rose-300 bg-rose-50/50' : 'border-indigo-300 bg-indigo-50/40'}`}>
+    <div className={`rounded-xl border-2 border-dashed p-3.5 shadow-sm ${isConflict ? 'border-rose-300 bg-rose-50/50' : 'border-indigo-300 bg-indigo-50/40'}`}>
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-1.5">
           {isConflict ? <AlertTriangle className="h-4 w-4 text-rose-600" /> : <Sparkles className="h-4 w-4 text-indigo-600" />}
@@ -104,25 +104,25 @@ export default function SuggestionCard({
       <div className="flex flex-wrap items-center gap-2 mt-3">
         <button
           onClick={() => onApprove(cell.id, editedStatus, editedArr)}
-          className="flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-md bg-emerald-600 text-white hover:bg-emerald-700"
+          className="flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 hover:shadow-md transition-all"
         >
           <Check className="h-3.5 w-3.5" /> Approve
         </button>
         <button
           onClick={() => onReject(cell.id)}
-          className="flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-md bg-white border border-slate-300 text-slate-600 hover:bg-slate-50"
+          className="flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-lg bg-white border border-slate-300 text-slate-600 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-colors"
         >
           <X className="h-3.5 w-3.5" /> Reject
         </button>
         <button
           onClick={() => setEditing((v) => !v)}
-          className="flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-md bg-white border border-slate-300 text-slate-600 hover:bg-slate-50"
+          className="flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-lg bg-white border border-slate-300 text-slate-600 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-colors"
         >
           <Pencil className="h-3.5 w-3.5" /> {editing ? 'Editing…' : 'Edit'}
         </button>
         <button
           onClick={() => setCommentOpen((v) => !v)}
-          className="flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-md bg-white border border-slate-300 text-slate-600 hover:bg-slate-50"
+          className="flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-lg bg-white border border-slate-300 text-slate-600 shadow-sm hover:bg-slate-50 hover:border-slate-400 transition-colors"
         >
           <MessageSquarePlus className="h-3.5 w-3.5" /> Comment
         </button>

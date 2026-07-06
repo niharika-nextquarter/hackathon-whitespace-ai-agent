@@ -17,7 +17,7 @@ export default function AgentPanel({ feed, collapsed, onToggle, onJumpToSuggesti
     return (
       <button
         onClick={onToggle}
-        className="fixed top-1/2 right-0 -translate-y-1/2 z-30 bg-slate-900 text-white rounded-l-lg px-1.5 py-3 shadow-lg hover:bg-slate-800"
+        className="fixed top-1/2 right-0 -translate-y-1/2 z-30 bg-gradient-to-br from-slate-800 to-slate-950 text-white rounded-l-xl px-1.5 py-3 shadow-lg hover:shadow-xl transition-shadow"
         title="Open agent panel"
       >
         <Bot className="h-4 w-4" />
@@ -27,9 +27,9 @@ export default function AgentPanel({ feed, collapsed, onToggle, onJumpToSuggesti
 
   return (
     <aside className="w-[340px] shrink-0 h-full bg-white border-l border-slate-200 flex flex-col">
-      <div className="flex items-center justify-between px-4 py-3.5 border-b border-slate-200">
-        <div className="flex items-center gap-2">
-          <div className="h-7 w-7 rounded-full bg-indigo-600 flex items-center justify-center">
+      <div className="flex items-center justify-between px-4 py-3.5 border-b border-slate-200 bg-gradient-to-r from-indigo-50/60 to-transparent">
+        <div className="flex items-center gap-2.5">
+          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-sm shadow-indigo-300/50 ring-1 ring-white/40">
             <Bot className="h-4 w-4 text-white" />
           </div>
           <div>
@@ -37,7 +37,7 @@ export default function AgentPanel({ feed, collapsed, onToggle, onJumpToSuggesti
             <div className="text-[11px] text-slate-400 leading-tight">Insights & staged suggestions</div>
           </div>
         </div>
-        <button onClick={onToggle} className="p-1.5 rounded-md hover:bg-slate-100 text-slate-400">
+        <button onClick={onToggle} className="p-1.5 rounded-md hover:bg-slate-900/5 text-slate-400 transition-colors">
           <ChevronsRight className="h-4 w-4" />
         </button>
       </div>
@@ -45,9 +45,9 @@ export default function AgentPanel({ feed, collapsed, onToggle, onJumpToSuggesti
       <button
         onClick={onReanalyze}
         disabled={isAnalyzing}
-        className="mx-4 mt-3 flex items-center justify-center gap-1.5 text-xs font-medium py-2 rounded-md border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-60"
+        className="mx-4 mt-3 flex items-center justify-center gap-1.5 text-xs font-medium py-2 rounded-lg border border-slate-200 text-slate-600 shadow-sm hover:bg-slate-50 hover:border-slate-300 disabled:opacity-60 transition-colors"
       >
-        <RefreshCw className={`h-3.5 w-3.5 ${isAnalyzing ? 'animate-spin' : ''}`} />
+        <RefreshCw className={`h-3.5 w-3.5 ${isAnalyzing ? 'animate-spin text-indigo-500' : ''}`} />
         {isAnalyzing ? 'Re-analyzing sources…' : 'Re-analyze all sources'}
       </button>
 
@@ -61,7 +61,7 @@ export default function AgentPanel({ feed, collapsed, onToggle, onJumpToSuggesti
                 <Icon className="h-3.5 w-3.5" />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-sm text-slate-700 leading-snug bg-slate-50 rounded-lg rounded-tl-none px-3 py-2 border border-slate-100">
+                <div className="text-sm text-slate-700 leading-snug bg-slate-50 rounded-xl rounded-tl-sm px-3 py-2 border border-slate-100 shadow-sm">
                   {m.text}
                   {m.ref && (
                     <button
@@ -92,9 +92,9 @@ export default function AgentPanel({ feed, collapsed, onToggle, onJumpToSuggesti
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask the agent about this account..."
-          className="flex-1 text-sm border border-slate-200 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+          className="flex-1 text-sm border border-slate-200 rounded-full px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition-colors"
         />
-        <button type="submit" className="p-2 rounded-md bg-slate-900 text-white hover:bg-slate-800">
+        <button type="submit" className="p-2.5 rounded-full bg-gradient-to-br from-slate-800 to-slate-950 text-white shadow-sm hover:shadow-md transition-shadow shrink-0">
           <Send className="h-3.5 w-3.5" />
         </button>
       </form>

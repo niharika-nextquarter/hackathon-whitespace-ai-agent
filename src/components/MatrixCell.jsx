@@ -19,10 +19,10 @@ export default function MatrixCell({ cell, maxArr, isScenarioTarget, onClick }) 
   return (
     <button
       onClick={onClick}
-      className={`group relative w-full h-full min-h-[92px] rounded-lg p-2.5 flex flex-col justify-between text-left transition
+      className={`group relative w-full h-full min-h-[92px] rounded-xl p-2.5 flex flex-col justify-between text-left transition-all duration-150 shadow-sm
         ${meta.bg} ${borderClass}
         ${isScenarioTarget ? 'ring-2 ring-offset-1 ring-violet-500' : ''}
-        hover:shadow-md hover:-translate-y-0.5 hover:z-10`}
+        hover:shadow-lg hover:-translate-y-0.5 hover:z-10`}
     >
       {hasPending && (
         <span className={`absolute -top-2 -right-2 flex h-4 w-4 ${isConflict ? '' : ''}`}>

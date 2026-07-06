@@ -12,9 +12,9 @@ export default function CellDrilldown({ cell, buyingCenter, solution, onClose, o
 
   return (
     <div className="fixed inset-0 z-40 flex justify-end">
-      <div className="absolute inset-0 bg-slate-900/30 animate-fade-in" onClick={onClose} />
-      <div className="relative w-full max-w-md h-full bg-white shadow-2xl flex flex-col animate-fade-in">
-        <div className="flex items-start justify-between p-5 border-b border-slate-200">
+      <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] animate-fade-in" onClick={onClose} />
+      <div className="relative w-full max-w-md h-full bg-white shadow-2xl rounded-l-2xl flex flex-col animate-fade-in">
+        <div className="flex items-start justify-between p-5 border-b border-slate-200 rounded-tl-2xl bg-gradient-to-r from-slate-50 to-white">
           <div>
             <div className="text-xs text-slate-400">{buyingCenter.buying_center_name} × {solution.solution_name}</div>
             <div className="mt-1 flex items-center gap-2">
@@ -25,7 +25,7 @@ export default function CellDrilldown({ cell, buyingCenter, solution, onClose, o
               <div className="text-lg font-semibold text-slate-900 mt-1">{formatCurrency(cell.arr)} <span className="text-xs font-normal text-slate-400">est. ARR</span></div>
             )}
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-md hover:bg-slate-100 text-slate-400">
+          <button onClick={onClose} className="p-1.5 rounded-md hover:bg-slate-900/5 text-slate-400 transition-colors">
             <X className="h-4 w-4" />
           </button>
         </div>
@@ -104,7 +104,7 @@ export default function CellDrilldown({ cell, buyingCenter, solution, onClose, o
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
                 placeholder="Add a note..."
-                className="flex-1 text-sm border border-slate-200 rounded-md px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                className="flex-1 text-sm border border-slate-200 rounded-md px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-brand-300"
               />
               <button
                 onClick={() => {
@@ -112,7 +112,7 @@ export default function CellDrilldown({ cell, buyingCenter, solution, onClose, o
                   onComment(cell.id, commentText.trim())
                   setCommentText('')
                 }}
-                className="text-sm px-3 py-1.5 rounded-md bg-slate-900 text-white hover:bg-slate-800"
+                className="text-sm px-3 py-1.5 rounded-lg bg-brand-700 text-white shadow-sm hover:bg-brand-800 transition-colors"
               >
                 Add
               </button>
